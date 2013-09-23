@@ -3,7 +3,7 @@
 angular.module('findingBitsV2App')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
-      'HTML5 Boilerplate',
+      'HTML5sss Boilerplate',
       'AngularJS',
       'Karma'
     ];
