@@ -27,23 +27,12 @@ module.exports = function (grunt) {
   } catch (e) {}
 
   grunt.initConfig({
-    sass: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'app/styles',
-          src: ['*.scss'],
-          dest: 'assets',
-          ext: '.css'
-        }]
-      }
-    },
     compass: {
       dist: {
         options: {
           require: "zurb-foundation",
           sassDir: 'app/styles',
-          cssDir: 'app/assets',
+          cssDir: '.tmp/styles',
           environment: 'production'
         }
       },
@@ -51,7 +40,7 @@ module.exports = function (grunt) {
         options: {
           require: "zurb-foundation",
           sassDir: 'app/styles',
-          cssDir: 'app/assets'
+          cssDir: '.tmp/styles'
         }
       }
     },
@@ -75,7 +64,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
-          'app/assets/{,*/}*.css',
+          '.tmp/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -292,13 +281,13 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
-        src: '{,*/}*.css'
+        src: '{,*/}*.scss'
       }
     },
     concurrent: {
       server: [
         'coffee:dist',
-        'copy:styles'
+        'compass'
       ],
       test: [
         'coffee',
@@ -366,9 +355,6 @@ module.exports = function (grunt) {
     'connect:test',
     'karma'
   ]);
-
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.registerTask('default', ['sass']);
 
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.registerTask('default', ['jshint', 'compass']);

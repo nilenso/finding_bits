@@ -3,9 +3,8 @@
 $foo: red;
 
 body {
-    background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: $foo;
+    background-color: $foo;
 }
 
 .app-name {
