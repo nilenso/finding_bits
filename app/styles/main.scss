@@ -1,9 +1,14 @@
 @import 'foundation';
-
+@import 'global';
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #d7b5ff;
+    background-color: $background-color;
+}
+
+h1 {
+  font-family: "omnes-pro", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 80px;
 }
 
 .app-name {
