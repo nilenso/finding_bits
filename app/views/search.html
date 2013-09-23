@@ -1,5 +1,12 @@
 <div class="row">
   <div class="columns large-12">
-    <input type="text" />
+    <input type="text" ng-model="form.code_snippet"/>
+
+    <div class="select-language">
+      <select chosen ng-model="form.language" ng-options="name for name in languagesList"></select>
+    </div>
+
+
+
   </div>
 </div>

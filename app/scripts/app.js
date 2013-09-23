@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('findingBitsV2App', [])
+angular.module('findingBitsV2App', ['localytics.directives'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
